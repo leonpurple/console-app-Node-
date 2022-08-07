@@ -2,14 +2,32 @@
 ---
 
 
- la aplicación nos permite: Añadir Tareas, Listar todas las tareas, separar Listado de tareas pendientes y completadas con fecha, u utilizar delete segun se necesite. 
+ La aplicación nos permite: Añadir tareas, listar todas las tareas, separar listado de tareas pendientes y completadas con fecha, utilizar delete según se necesite. 
  
  ---
  imagen
  
  ---
  Desarrollada con Node.Js
+ 
+
+
+
 
  Dependencias Utilizadas 
 
- uuid.
+ uuid - npm: generador de id unicos
+
+ ``npm install uuid``
+
+ inquire - npm: para interfaz de usuario
+  en consola
+
+  ```npm install --save inquirer```
+
+ colors - npm: colores para la terminal
+ 
+ ``npm install colors``
+
+ ---
+ recursos: [Fernando Herrera](www.fernando-herrera.com) 
