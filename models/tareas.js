@@ -90,6 +90,12 @@ class Tareas {
                 
             }
         })
+
+        this.listadoArr.forEach ( tarea => {
+            if (!ids.includes(tarea.id)){
+                this._listado[tarea.id].completadoEn = null
+            }
+        })
     }
 
 }
