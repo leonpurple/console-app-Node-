@@ -49,7 +49,7 @@ const main = async () => {
                 break
             case '5':    //completado | pendiente 
                 const ids = await mostrarListadosChecklist(tareas.listadoArr)// Listar pendientes
-                console.log(ids)
+                tareas.toggleCompletadas( ids )
                 break
 
             case '6':    

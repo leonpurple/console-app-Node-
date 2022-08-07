@@ -25,8 +25,8 @@ class Tareas {
     }
 
 
-    borrarTarea( id = ''){
-        if(this._listado[ id ]){
+    borrarTarea(id = '') {
+        if (this._listado[id]) {
             delete this._listado[id]
         }
     }
@@ -48,39 +48,50 @@ class Tareas {
         this.listadoArr.forEach((tarea, i) => {
             const idx = `${i + 1}`.green
             const { desc, completadoEn } = tarea //desectructuracion aislo el id
-            const estado = ( completadoEn)
-                                ? 'Completada'.green
-                                : 'Pendiente'.red
-            console.log(`${ idx } ${ desc }:: ${ estado }`)                    
+            const estado = (completadoEn)
+                ? 'Completada'.green
+                : 'Pendiente'.red
+            console.log(`${idx} ${desc}:: ${estado}`)
         })
     }
-    
-    listarPendientesCompletadas( completadas = true ){
+
+    listarPendientesCompletadas(completadas = true) {
         console.log()
         let contador = 0
-        this.listadoArr.forEach( tarea => {
-            
+        this.listadoArr.forEach(tarea => {
+
             const { desc, completadoEn } = tarea //desectructuracion aislo el id
-            const estado = ( completadoEn)
-            ? 'Completada'.green
-            : 'Pendiente'.red
-            if( completadas ){
+            const estado = (completadoEn)
+                ? 'Completada'.green
+                : 'Pendiente'.red
+            if (completadas) {
                 //mostrar completadas
-                if( completadoEn){
+                if (completadoEn) {
                     contador += 1
-                    console.log(`${ contador.toString().green }. ${ desc }:: ${ estado }`)                    
-                    
+                    console.log(`${contador.toString().green}. ${desc}:: ${completadoEn.yellow}`)
+
                 }
-            }else{
+            } else {
                 //mostrar pendientes
-                if( !completadoEn ){
+                if (!completadoEn) {
                     contador += 1
-                    console.log(`${ contador.toString().red } ${ desc }:: ${ estado }`)                    
+                    console.log(`${contador.toString().red} ${desc}:: ${estado}`)
                 }
             }
-        })    
-        
+        })
+
     }
+
+    toggleCompletadas(ids = []){
+        ids.forEach( id => {
+            const tarea = this._listado[id]
+            if ( !tarea.completadoEn ){
+                tarea.completadoEn = new Date().toISOString()
+                
+            }
+        })
+    }
+
 }
 
 module.exports = Tareas
